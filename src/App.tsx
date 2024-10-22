@@ -2,7 +2,10 @@ import React from 'react'
 import logo from './logo.svg'
 import './App.css'
 import Text from './components/shared/Text'
-import Button from './components/shared/\bButton'
+import Button from './components/shared/Button'
+import Input from './components/shared/Input'
+import Textfield from './components/shared/TextField'
+import TextField from './components/shared/TextField'
 
 function App() {
   return (
@@ -26,6 +29,14 @@ function App() {
       <Button full disabled>
         클릭해주세요
       </Button>
+      {/* <Input placeholder="로그인" aria-invalid={false} /> */}
+      {/* <Input aria-invalid={true} /> */}
+      <TextField label="아이디" />
+      <TextField
+        label="패스워드"
+        hasError={true}
+        helpMessage="비밀번호를 입력해 주세요."
+      />
     </div>
   )
 }
