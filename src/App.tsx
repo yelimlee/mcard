@@ -6,8 +6,11 @@ import Button from './components/shared/Button'
 import Input from './components/shared/Input'
 import Textfield from './components/shared/TextField'
 import TextField from './components/shared/TextField'
+import Alert from './components/shared/Alert'
+import { useAlertContext } from './contexts/AlertContext'
 
 function App() {
+  const { open } = useAlertContext()
   return (
     <div>
       <Text typography="t1" display="block" color="red">
@@ -37,6 +40,18 @@ function App() {
         hasError={true}
         helpMessage="비밀번호를 입력해 주세요."
       />
+
+      <Button
+        onClick={() => {
+          open({
+            title: '카드신청완료',
+            description: '안녕하세요',
+            onButtonClick: () => {},
+          })
+        }}
+      >
+        클릭
+      </Button>
     </div>
   )
 }
