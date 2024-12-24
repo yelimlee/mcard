@@ -1,6 +1,8 @@
 import { COLLECIONS } from '@/constants'
 import {
   collection,
+  doc,
+  getDoc,
   getDocs,
   limit,
   query,
@@ -31,4 +33,13 @@ export async function getCards(pageParam?: QuerySnapshot<Card>) {
     ...(doc.data() as Card),
   }))
   return { items, lastVisible }
+}
+
+export async function getCard(id: string) {
+  const snapshot = await getDoc(doc(store, COLLECIONS.CARD, id))
+
+  return {
+    id,
+    ...(snapshot.data() as Card),
+  }
 }
