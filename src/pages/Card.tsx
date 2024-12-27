@@ -1,6 +1,6 @@
 import Flex from '@/components/shared/Flex'
 import Text from '@/components/shared/Text'
-import FlexedBottomButton from '@/components/shared/FlexedBottomButton'
+import FixedBottomButton from '@/components/shared/FixedBottomButton'
 import ListRow from '@/components/shared/ListRow'
 import Top from '@/components/shared/Top'
 import { getCard } from '@/remote/card'
@@ -49,6 +49,7 @@ function CardPage() {
                 contents={
                   <ListRow.Texts title={`혜택 ${index + 1}`} subTitle={text} />
                 }
+                as="div"
               />
             </motion.li>
           )
@@ -60,7 +61,7 @@ function CardPage() {
           <Text typography="t7">{removeHtmlTags(promotion.terms)}</Text>
         </Flex>
       ) : null}
-      <FlexedBottomButton label="신청하기" onClick={() => {}} />
+      <FixedBottomButton label="신청하기" onClick={() => {}} />
     </div>
   )
 }

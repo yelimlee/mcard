@@ -4,18 +4,29 @@ import styled from '@emotion/styled'
 import { createPortal } from 'react-dom'
 import Button from './Button'
 
-interface FlexedBottomButtonProps {
+interface FixedBottomButtonProps {
   label: string
   onClick: () => void
+  disabled?: boolean
 }
-function FlexedBottomButton({ label, onClick }: FlexedBottomButtonProps) {
+function FixedBottomButton({
+  label,
+  onClick,
+  disabled,
+}: FixedBottomButtonProps) {
   const $portalRoot = document.getElementById('root-portal')
   if ($portalRoot == null) {
     return null
   }
   return createPortal(
     <Container>
-      <Button full={true} size="medium" onClick={onClick} css={buttonStyles}>
+      <Button
+        full={true}
+        size="medium"
+        onClick={onClick}
+        css={buttonStyles}
+        disabled={disabled}
+      >
         {label}
       </Button>
     </Container>,
@@ -44,4 +55,4 @@ const buttonStyles = css`
   border-radius: 8px;
 `
 
-export default FlexedBottomButton
+export default FixedBottomButton
