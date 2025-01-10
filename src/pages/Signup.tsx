@@ -4,9 +4,11 @@ import { FormValues } from '@/models/signup'
 import { auth, store } from '@/remote/firebase'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { collection, doc, setDoc } from 'firebase/firestore'
+import { useNavigate } from 'react-router-dom'
 
 // form과 회원가입을 분리해서 signup에는 form에서 받아온 데이터를 받아서만 실행해준다
 function SignupPage() {
+  const navigate = useNavigate()
   const handleSubmit = async (formValues: FormValues) => {
     const { email, password, name } = formValues
     const { user } = await createUserWithEmailAndPassword(auth, email, password)
@@ -22,8 +24,7 @@ function SignupPage() {
 
     // collection의 두번째 인자에 uid를 넣어서 doc의 id를 지정해준다
     await setDoc(doc(collection(store, COLLECIONS.USER), user.uid), newUser)
-
-    // TODO 로그인
+    navigate('/')
   }
   return (
     <div>
