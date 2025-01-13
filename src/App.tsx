@@ -1,5 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import PrivateRoute from './components/auth/PrivateRoute'
 import Navbar from './components/shared/Navbar'
+import ApplyPage from './pages/Apply'
 import CardPage from './pages/Card'
 import HomePage from './pages/Home'
 import SigninPage from './pages/Signin'
@@ -16,6 +18,14 @@ function App() {
         <Route path="/test" Component={TestPage} />
         <Route path="/signup" Component={SignupPage} />
         <Route path="/signin" Component={SigninPage} />
+        <Route
+          path="/apply/:id"
+          element={
+            <PrivateRoute>
+              <ApplyPage />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   )

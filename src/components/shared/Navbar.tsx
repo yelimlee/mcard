@@ -13,7 +13,7 @@ function Navbar() {
   const showSignButton =
     ['/signup', '/signin'].includes(location.pathname) === false
   const user = useUser()
-  console.log('유저 정보', user)
+  // console.log('유저 정보', user)
 
   const handleLogout = useCallback(() => {
     signOut(auth)
