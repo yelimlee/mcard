@@ -7,7 +7,7 @@ import FixedBottomButton from '../shared/FixedBottomButton'
 type InfoValues = Pick<ApplyValues, 'salary' | 'creditScore' | 'payDate'>
 
 function BasicInfo({ onNext }: { onNext: (values: InfoValues) => void }) {
-  const [InfoValues, setInfoValues] = useState({
+  const [InfoValues, setInfoValues] = useState<InfoValues>({
     salary: '',
     creditScore: '',
     payDate: '',
