@@ -6,6 +6,14 @@ export interface Term {
   title: string
 }
 
+// 카드 신청 상태
+export const APPLY_STATUS = {
+  READY: 'READY',
+  PROGRESS: 'PROGRESS',
+  COMPLETE: 'COMPLETE',
+  REJECT: 'REJECT',
+} as const
+
 export interface ApplyValues {
   userId: User['uid']
   terms: Array<Term['id']>
@@ -17,6 +25,7 @@ export interface ApplyValues {
   isMaster: boolean
   isHipass: boolean
   isRf: boolean
+  status: keyof typeof APPLY_STATUS // keyof typeof : 객체의 key값을 타입으로 쓰고 싶을때 READY | PROGRESS | COMPLETE | REJECT
 }
 
 export interface Option {
