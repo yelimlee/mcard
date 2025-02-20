@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import PrivateRoute from './components/auth/PrivateRoute'
 import Navbar from './components/shared/Navbar'
@@ -23,7 +24,10 @@ function App() {
           path="/apply/:id"
           element={
             <PrivateRoute>
-              <ApplyPage />
+              {/* ApplyPage에서 데이터를 불러올동안 fallback을 보여준다 */}
+              <Suspense fallback={<></>}>
+                <ApplyPage />
+              </Suspense>
             </PrivateRoute>
           }
         />

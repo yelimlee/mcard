@@ -26,6 +26,7 @@ export interface ApplyValues {
   isHipass: boolean
   isRf: boolean
   status: keyof typeof APPLY_STATUS // keyof typeof : 객체의 key값을 타입으로 쓰고 싶을때 READY | PROGRESS | COMPLETE | REJECT
+  step: number
 }
 
 export interface Option {

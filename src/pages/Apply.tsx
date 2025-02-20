@@ -1,6 +1,9 @@
 import Apply from '@/components/apply'
+import useAppliedCard from '@/components/apply/hooks/useAppliedCard'
 import useApplyCardMutation from '@/components/apply/hooks/useApplyCardMutation'
 import usePollApplyStatus from '@/components/apply/hooks/usePollApplyStatus'
+import FullPageLoader from '@/components/shared/FullPageLoader'
+import { useAlertContext } from '@/contexts/AlertContext'
 import useUser from '@/hooks/auth/useUser'
 import { APPLY_STATUS } from '@/models/apply'
 import { updateApplyCard } from '@/remote/apply'
@@ -13,6 +16,36 @@ function ApplyPage() {
   const user = useUser()
   const { id } = useParams() as { id: string }
   const [readyToPoll, setReadyToPoll] = useState(false)
+  const { open } = useAlertContext()
+
+  // suspense : data값이 처음에는 undefined로 뜨다가 나중에 데이터가 들어오는데 처음부터 데이터의 값이 있으면 좋을때
+  // 그래서 데이터를 불러올때는 fallback을 보여주고 데이터가 다 불러진 후에 Apply.tsx가 불러온다
+  const { data } = useAppliedCard({
+    userId: user?.uid as string,
+    cardId: id,
+    options: {
+      onSuccess: (applied) => {
+        if (applied == null) {
+          return
+        }
+        // 이미 카드 신청이 완료됨
+        if (applied.status === APPLY_STATUS.COMPLETE) {
+          open({
+            title: '이미 발급이 완료된 카드입니다.',
+            onButtonClick: () => {
+              window.history.back()
+            },
+          })
+          return
+        }
+
+        // 카드 재심사 요청
+        setReadyToPoll(true)
+      },
+      onError: () => {},
+      suspense: true,
+    },
+  })
 
   usePollApplyStatus({
     onSuccess: async () => {
@@ -45,17 +78,26 @@ function ApplyPage() {
       setReadyToPoll(true)
     },
     onError: () => {
-      // 다시 상세페이지 이동
+      // 다시 상세 페이지 이동
       window.history.back()
     },
   })
 
-  // TODO 나중에
-  if (readyToPoll || 카드를신청중인가) {
-    return <div>Loading...</div>
+  // 카드 신청 정보데이터가 없고 이미 신청한상태면 null return
+  if (data != null && data.status === APPLY_STATUS.COMPLETE) {
+    return null
   }
 
-  return <Apply onSubmit={mutate} />
+  if (readyToPoll || 카드를신청중인가) {
+    return <FullPageLoader message="카드를 신청중입니다" />
+  }
+
+  return (
+    <Apply
+      onSubmit={mutate}
+      appliedStatus={data != null && data?.status === APPLY_STATUS.COMPLETE}
+    />
+  )
 }
 
 export default ApplyPage
