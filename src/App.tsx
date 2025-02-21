@@ -6,6 +6,7 @@ import ApplyPage from './pages/Apply'
 import ApplyDone from './pages/ApplyDone'
 import CardPage from './pages/Card'
 import HomePage from './pages/Home'
+import MyPage from './pages/My'
 import SigninPage from './pages/Signin'
 import SignupPage from './pages/Signup'
 import TestPage from './pages/Test'
@@ -36,6 +37,14 @@ function App() {
           element={
             <PrivateRoute>
               <ApplyDone />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/my"
+          element={
+            <PrivateRoute>
+              <MyPage />
             </PrivateRoute>
           }
         />

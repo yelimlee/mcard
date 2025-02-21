@@ -17,6 +17,7 @@ function ApplyPage() {
   const { id } = useParams() as { id: string }
   const [readyToPoll, setReadyToPoll] = useState(false)
   const { open } = useAlertContext()
+  const storageKey = `applied=${user?.uid}-${id}`
 
   // suspense : data값이 처음에는 undefined로 뜨다가 나중에 데이터가 들어오는데 처음부터 데이터의 값이 있으면 좋을때
   // 그래서 데이터를 불러올때는 fallback을 보여주고 데이터가 다 불러진 후에 Apply.tsx가 불러온다
@@ -36,6 +37,10 @@ function ApplyPage() {
               window.history.back()
             },
           })
+          const localItem = localStorage.getItem(storageKey)
+          if (localItem) {
+            localStorage.removeItem(storageKey)
+          }
           return
         }
 
@@ -92,12 +97,7 @@ function ApplyPage() {
     return <FullPageLoader message="카드를 신청중입니다" />
   }
 
-  return (
-    <Apply
-      onSubmit={mutate}
-      appliedStatus={data != null && data?.status === APPLY_STATUS.COMPLETE}
-    />
-  )
+  return <Apply onSubmit={mutate} />
 }
 
 export default ApplyPage

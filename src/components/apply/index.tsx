@@ -7,13 +7,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 // 3개의 신청 컴포넌트로 부터 받은 데이터를 관리
-function Apply({
-  onSubmit,
-  appliedStatus,
-}: {
-  onSubmit: (applyValues: ApplyValues) => void
-  appliedStatus: boolean
-}) {
+function Apply({ onSubmit }: { onSubmit: (applyValues: ApplyValues) => void }) {
   const user = useUser()
   const { id } = useParams() as { id: string }
   // unique한 로컬스토리지 키값 생성
@@ -41,12 +35,9 @@ function Apply({
         status: APPLY_STATUS.READY,
       } as ApplyValues)
     } else {
-      // TODO 카드 신청하고 재신청하면 로컬에 계속 생기는거 고쳐야함ㅡㅡ
-      if (!appliedStatus) {
-        localStorage.setItem(storageKey, JSON.stringify(applyValues))
-      }
+      localStorage.setItem(storageKey, JSON.stringify(applyValues))
     }
-  }, [applyValues, onSubmit, storageKey, appliedStatus])
+  }, [applyValues, onSubmit, storageKey])
 
   const handleTermsChange = (terms: ApplyValues['terms']) => {
     setApplyValues((prevValues) => ({
