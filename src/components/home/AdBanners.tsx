@@ -11,7 +11,19 @@ import 'swiper/css'
 
 function AdBanners() {
   // 첫번째 인자 : 'key'값 / 두번째 인자 : 'fetch'함수
-  const { data } = useQuery(['adBanners'], () => getAdBenners())
+  const { data, isLoading } = useQuery(['adBanners'], () => getAdBenners())
+
+  // 데이터가 없거나 로딩중일때 빈 박스 표시 -> 스켈레톤 역할
+  if (data == null || isLoading) {
+    return (
+      <Container>
+        <Flex direction="column" css={bannerContainerStyles}>
+          <Text bold={true}>$nbsp;</Text>
+          <Text typography="t7">$nbsp;</Text>
+        </Flex>
+      </Container>
+    )
+  }
 
   return (
     <Container>
