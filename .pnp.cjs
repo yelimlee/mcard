@@ -56,6 +56,7 @@ const RAW_RUNTIME_STATE =
           ["f", "npm:1.4.0"],\
           ["firebase", "npm:10.14.1"],\
           ["framer-motion", "virtual:97b6fb83b601b76b936a7f339087427a86325eb29de613bafebdcd10a9ad565663d1ab92c8cd912989ad2c8b2660a1b41cad9ebc146117afef28f2bd0de740e5#npm:11.15.0"],\
+          ["intersection-observer", "npm:0.12.2"],\
           ["lodash", "npm:4.17.21"],\
           ["lodash.flatten", "npm:4.4.0"],\
           ["prettier", "npm:3.3.3"],\
@@ -63,6 +64,7 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:97b6fb83b601b76b936a7f339087427a86325eb29de613bafebdcd10a9ad565663d1ab92c8cd912989ad2c8b2660a1b41cad9ebc146117afef28f2bd0de740e5#npm:18.3.1"],\
           ["react-infinite-scroll-component", "virtual:97b6fb83b601b76b936a7f339087427a86325eb29de613bafebdcd10a9ad565663d1ab92c8cd912989ad2c8b2660a1b41cad9ebc146117afef28f2bd0de740e5#npm:6.1.0"],\
+          ["react-intersection-observer", "virtual:97b6fb83b601b76b936a7f339087427a86325eb29de613bafebdcd10a9ad565663d1ab92c8cd912989ad2c8b2660a1b41cad9ebc146117afef28f2bd0de740e5#npm:9.15.1"],\
           ["react-query", "virtual:97b6fb83b601b76b936a7f339087427a86325eb29de613bafebdcd10a9ad565663d1ab92c8cd912989ad2c8b2660a1b41cad9ebc146117afef28f2bd0de740e5#npm:3.39.3"],\
           ["react-router-dom", "virtual:97b6fb83b601b76b936a7f339087427a86325eb29de613bafebdcd10a9ad565663d1ab92c8cd912989ad2c8b2660a1b41cad9ebc146117afef28f2bd0de740e5#npm:7.1.0"],\
           ["react-scripts", "virtual:97b6fb83b601b76b936a7f339087427a86325eb29de613bafebdcd10a9ad565663d1ab92c8cd912989ad2c8b2660a1b41cad9ebc146117afef28f2bd0de740e5#npm:5.0.1"],\
@@ -12612,6 +12614,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["intersection-observer", [\
+      ["npm:0.12.2", {\
+        "packageLocation": "./.yarn/cache/intersection-observer-npm-0.12.2-2ad6771d14-9591f46b2b.zip/node_modules/intersection-observer/",\
+        "packageDependencies": [\
+          ["intersection-observer", "npm:0.12.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["ip-address", [\
       ["npm:9.0.5", {\
         "packageLocation": "./.yarn/cache/ip-address-npm-9.0.5-9fa024d42a-331cd07faf.zip/node_modules/ip-address/",\
@@ -14488,6 +14499,7 @@ const RAW_RUNTIME_STATE =
           ["f", "npm:1.4.0"],\
           ["firebase", "npm:10.14.1"],\
           ["framer-motion", "virtual:97b6fb83b601b76b936a7f339087427a86325eb29de613bafebdcd10a9ad565663d1ab92c8cd912989ad2c8b2660a1b41cad9ebc146117afef28f2bd0de740e5#npm:11.15.0"],\
+          ["intersection-observer", "npm:0.12.2"],\
           ["lodash", "npm:4.17.21"],\
           ["lodash.flatten", "npm:4.4.0"],\
           ["prettier", "npm:3.3.3"],\
@@ -14495,6 +14507,7 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:97b6fb83b601b76b936a7f339087427a86325eb29de613bafebdcd10a9ad565663d1ab92c8cd912989ad2c8b2660a1b41cad9ebc146117afef28f2bd0de740e5#npm:18.3.1"],\
           ["react-infinite-scroll-component", "virtual:97b6fb83b601b76b936a7f339087427a86325eb29de613bafebdcd10a9ad565663d1ab92c8cd912989ad2c8b2660a1b41cad9ebc146117afef28f2bd0de740e5#npm:6.1.0"],\
+          ["react-intersection-observer", "virtual:97b6fb83b601b76b936a7f339087427a86325eb29de613bafebdcd10a9ad565663d1ab92c8cd912989ad2c8b2660a1b41cad9ebc146117afef28f2bd0de740e5#npm:9.15.1"],\
           ["react-query", "virtual:97b6fb83b601b76b936a7f339087427a86325eb29de613bafebdcd10a9ad565663d1ab92c8cd912989ad2c8b2660a1b41cad9ebc146117afef28f2bd0de740e5#npm:3.39.3"],\
           ["react-router-dom", "virtual:97b6fb83b601b76b936a7f339087427a86325eb29de613bafebdcd10a9ad565663d1ab92c8cd912989ad2c8b2660a1b41cad9ebc146117afef28f2bd0de740e5#npm:7.1.0"],\
           ["react-scripts", "virtual:97b6fb83b601b76b936a7f339087427a86325eb29de613bafebdcd10a9ad565663d1ab92c8cd912989ad2c8b2660a1b41cad9ebc146117afef28f2bd0de740e5#npm:5.0.1"],\
@@ -17700,6 +17713,32 @@ const RAW_RUNTIME_STATE =
         ],\
         "packagePeers": [\
           "@types/react",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-intersection-observer", [\
+      ["npm:9.15.1", {\
+        "packageLocation": "./.yarn/cache/react-intersection-observer-npm-9.15.1-af76211df1-ac2ce7093a.zip/node_modules/react-intersection-observer/",\
+        "packageDependencies": [\
+          ["react-intersection-observer", "npm:9.15.1"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:97b6fb83b601b76b936a7f339087427a86325eb29de613bafebdcd10a9ad565663d1ab92c8cd912989ad2c8b2660a1b41cad9ebc146117afef28f2bd0de740e5#npm:9.15.1", {\
+        "packageLocation": "./.yarn/__virtual__/react-intersection-observer-virtual-5b98b244a5/0/cache/react-intersection-observer-npm-9.15.1-af76211df1-ac2ce7093a.zip/node_modules/react-intersection-observer/",\
+        "packageDependencies": [\
+          ["react-intersection-observer", "virtual:97b6fb83b601b76b936a7f339087427a86325eb29de613bafebdcd10a9ad565663d1ab92c8cd912989ad2c8b2660a1b41cad9ebc146117afef28f2bd0de740e5#npm:9.15.1"],\
+          ["@types/react", "npm:18.3.11"],\
+          ["@types/react-dom", "npm:18.3.0"],\
+          ["react", "npm:18.3.1"],\
+          ["react-dom", "virtual:97b6fb83b601b76b936a7f339087427a86325eb29de613bafebdcd10a9ad565663d1ab92c8cd912989ad2c8b2660a1b41cad9ebc146117afef28f2bd0de740e5#npm:18.3.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
           "react"\
         ],\
         "linkType": "HARD"\
