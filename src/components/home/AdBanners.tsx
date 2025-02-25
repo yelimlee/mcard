@@ -18,8 +18,8 @@ function AdBanners() {
     return (
       <Container>
         <Flex direction="column" css={bannerContainerStyles}>
-          <Text bold={true}>$nbsp;</Text>
-          <Text typography="t7">$nbsp;</Text>
+          <Text bold={true}>&nbsp;</Text>
+          <Text typography="t7">&nbsp;</Text>
         </Flex>
       </Container>
     )

@@ -5,6 +5,7 @@ import useUser from '@/hooks/auth/useUser'
 import { ApplyValues, APPLY_STATUS } from '@/models/apply'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import ProgressBar from '../shared/ProgressBar'
 
 // 3개의 신청 컴포넌트로 부터 받은 데이터를 관리
 function Apply({ onSubmit }: { onSubmit: (applyValues: ApplyValues) => void }) {
@@ -12,6 +13,7 @@ function Apply({ onSubmit }: { onSubmit: (applyValues: ApplyValues) => void }) {
   const { id } = useParams() as { id: string }
   // unique한 로컬스토리지 키값 생성
   const storageKey = `applied=${user?.uid}-${id}`
+  const LAST_STEP = 3
 
   const [applyValues, setApplyValues] = useState<Partial<ApplyValues>>(() => {
     const applied = localStorage.getItem(storageKey)
@@ -69,6 +71,7 @@ function Apply({ onSubmit }: { onSubmit: (applyValues: ApplyValues) => void }) {
 
   return (
     <div>
+      <ProgressBar progress={(applyValues.step as number) / LAST_STEP} />
       {applyValues.step === 0 ? <Terms onNext={handleTermsChange} /> : null}
       {applyValues.step === 1 ? (
         <BasicInfo onNext={handleBasicInfoChange} />
